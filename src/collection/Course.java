@@ -1,4 +1,4 @@
-package collection;
+package Collection;
 
 /**
  * Created by james on 2016/10/4.
@@ -33,5 +33,40 @@ public class Course {
     }
 
     public Course() {
+    }
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        Course course = (Course) o;
+//
+//        return name != null ? name.equals(course.name) : course.name == null;
+//
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        final int prime = 31;
+//        int result = 1;
+//        result = prime * result + ((name == null) ? 0 : name.hashCode());
+//        return result;
+//    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Course course = (Course) o;
+
+        return name != null ? name.equals(course.name) : course.name == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
     }
 }

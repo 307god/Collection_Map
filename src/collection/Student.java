@@ -1,4 +1,4 @@
-package collection;
+package Collection;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -8,7 +8,7 @@ import java.util.Set;
  *
  * 学生类
  */
-public class Student {
+public class Student implements Comparable<Student> {
 
     private String id;
 
@@ -44,5 +44,26 @@ public class Student {
         this.id = id;
         this.name = name;
         this.courses = new HashSet<Course>();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Student student = (Student) o;
+
+        return name != null ? name.equals(student.name) : student.name == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        return this.id.compareTo(o.id);
     }
 }

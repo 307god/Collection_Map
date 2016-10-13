@@ -1,6 +1,6 @@
 package Map;
 
-import collection.Student;
+import Collection.Student;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -131,13 +131,37 @@ public class MapTest {
         }
     }
 
+    /**
+     * 测试Map中，是否包含某个Key值或者某个Value值
+     */
+    public void testContainsKeyOrValue(){
+        //提示输入学生ID
+        System.out.println("请输入要查询的学生ID：");
+        Scanner console = new Scanner(System.in);
+        String id = console.next();
+        //在Map中，用containsKey()方法，来判断是否包含某个Key值
+        System.out.println("您输入的学生ID为：" + id + "，在学生映射表中是否存在：" +
+            students.containsKey(id));
+        if (students.containsKey(id))
+            System.out.println("对应的学生为：" + students.get(id).getName());
+        //提示输入学生姓名
+        System.out.println("请输入要查询的学生姓名：");
+        String name = console.next();
+        //用containsValue9)方法，来判断是否包含某个Value值
+        if (students.containsValue(new Student(null, name)))
+            System.out.println("在学生映射表中，区时包含学生：" + name);
+        else
+            System.out.println("在学生映射表中不存在该学生！");
+    }
+
     public static void main(String[] args){
         MapTest mt = new MapTest();
         mt.testPut();
         mt.testKeySet();
 //        mt.testRemove();
 //        mt.testEntrySet();
-        mt.testModify();
-        mt.testEntrySet();
+//        mt.testModify();
+//        mt.testEntrySet();
+        mt.testContainsKeyOrValue();
     }
 }
